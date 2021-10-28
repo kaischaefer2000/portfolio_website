@@ -1,9 +1,14 @@
-import * as React from "react"
+import React from "react"
+import HeaderImage from "./headerImage"
+import Navigation from "./navigation"
 
-const Header = () => (
-  <header>
-  
-  </header>
-)
+const header = () => {
+  return (
+    <header>
+      <HeaderImage />
+      <Navigation  isHomePage={true}/>
+    </header>
+  )
+}
 
-export default Header
+export default header

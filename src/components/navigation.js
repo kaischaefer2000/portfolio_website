@@ -1,50 +1,126 @@
 import React from "react"
-import Image from "./image"
 import Button from "@mui/material/Button"
-// import { MdWavingHand } from "@react-icons/all-files/fa/FaMdWavingHand";
+// import LanguageSwitch from "./languageSwitch"
+import Image from "./image"
+import { Link } from "gatsby"
+import Modal from "@mui/material/Modal"
+import MenuIcon from "@mui/icons-material/Menu"
+import CloseIcon from "@mui/icons-material/Close"
 
-const Navigation = () => {
+const Navigation = ({ isHomePage }) => {
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   return (
-    <nav className="flex flex-row">
-      <div>
-        <Image
-          src="kai_schaefer_logo.png"
-          alt="Kai Schäfer Web Developer Logo"
-          className="w-24 m-4"
-        />
+    <nav
+      className={`flex flex-row w-full ${
+        isHomePage === true ? "absolute" : "realtive navColor"
+      }`}
+    >
+      <div
+        className="m-3 p-2 sm:p-2 rounded-lg border border-transparent"
+        style={{ backgroundColor: "rgba(256, 256, 256, 0.7)" }}
+      >
+        {/* <LanguageSwitch className="absolute" /> */}
+        <Link to="/">
+          <Image
+            src="kai_schaefer_logo.png"
+            alt="Kai Schäfer Web Developer Logo"
+            className="w-10 sm:w-20"
+          />
+        </Link>
       </div>
-      <div className="flex flex-row items-center justify-end w-full">
-        <Button
-          style={{ color: "#964493" }}
-          variant="text"
-          className="mx-2 normal-case"
-        >
-          Home
-        </Button>
-        <Button
-          style={{ color: "#964493" }}
-          disableElevation={true}
-          variant="text"
-          className="mx-2 normal-case"
-        >
-          Portfolio
-        </Button>
-        <Button
-          style={{ color: "#964493" }}
-          variant="text"
-          className="mx-2 normal-case"
-        >
-          Über mich
-        </Button>
-        <Button
-          variant="contained"
-          style={{ backgroundColor: "#3753a0" }}
-          className="mr-4 ml-2"
-        //   startIcon={<MdWavingHand/>}
-        >
-          Sag hallo!
-        </Button>
+      <div className="flex flex-row items-center justify-end w-full p-4">
+        <div className="hidden md:block">
+          <Link to="/">
+            <Button
+              style={{ color: "#fff", textTransform: "none" }}
+              variant="text"
+              className="mx-1"
+            >
+              Home
+            </Button>
+          </Link>
+          <Link to="/portfolio">
+            <Button
+              style={{ color: "#fff", textTransform: "none" }}
+              disableElevation={true}
+              variant="text"
+              className="mx-1"
+            >
+              Portfolio
+            </Button>
+          </Link>
+          <Link to="/ueber-mich">
+            <Button
+              style={{ color: "#fff", textTransform: "none" }}
+              variant="text"
+              className="mx-1"
+            >
+              Über mich
+            </Button>
+          </Link>
+          <Link to="/kontakt">
+            <Button
+              variant="outlined"
+              style={{
+                borderColor: "#f3b59e",
+                color: "#f3b59e",
+                marginLeft: "0.5rem",
+              }}
+              className="mr-4"
+            >
+              Sag hallo!
+            </Button>
+          </Link>
+        </div>
+        <div className="border rounded-lg">
+          <MenuIcon
+            onClick={handleOpen}
+            className="md:hidden m-1"
+            style={{ color: "#fff" }}
+          />
+        </div>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div className="bg-white m-5 p-5 h-auto flex flex-col rounded justify-items-start">
+          <CloseIcon className="absolute right-10" onClick={handleClose} />
+          <Link to="/" style={{ color: "#3753a0" }} className="ml-2 my-2">
+            Home
+          </Link>
+          <Link
+            to="/portfolio"
+            style={{ color: "#3753a0" }}
+            className="ml-2 my-2"
+          >
+            Portfolio
+          </Link>
+          <Link
+            to="/ueber-mich"
+            style={{ color: "#3753a0" }}
+            className="ml-2 my-2"
+          >
+            Über mich
+          </Link>
+          <Link to="/kontakt">
+            <Button
+              variant="contained"
+              style={{
+                marginTop: "0.5rem",
+                marginLeft: "0.5rem",
+              }}
+            >
+              Sag hallo!
+            </Button>
+          </Link>
+        </div>
+      </Modal>
     </nav>
   )
 }
