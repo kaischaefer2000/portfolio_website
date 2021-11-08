@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/header"
 import Welcome from "../components/welcome"
+import Technologies from "../components/technologies"
 
 
 const IndexPage = () => (
@@ -11,6 +12,7 @@ const IndexPage = () => (
     <Layout>
       <Seo title="Home" />
       <Welcome/>
+      <Technologies/>
     </Layout>
   </>
 )

@@ -43,7 +43,7 @@ const Image = ({ src, ...rest }) => {
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string,
+  alt: PropTypes.string.isRequired,
 }
 
 export default Image

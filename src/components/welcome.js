@@ -13,7 +13,7 @@ const Welcome = () => {
         style={{ paddingTop: "55vw" }}
         className="pb-12 flex flex-col md:flex-row -mt-14 md:-mt-0"
       >
-        <div className="w-full md:w-1/3 px-10 sm:px-36 py-14 md:p-0">
+        <div className="w-full md:w-1/3 px-14 sm:px-36 py-14 md:p-0">
           <Image
             src="profile.jpg"
             alt="Kai Schäfer Freelancer Würzburg"

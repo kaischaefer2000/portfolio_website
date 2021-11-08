@@ -6,6 +6,9 @@ import { Link } from "gatsby"
 import Modal from "@mui/material/Modal"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
+import PropTypes from 'prop-types'
+
+
 
 const Navigation = ({ isHomePage }) => {
   const [open, setOpen] = React.useState(false)
@@ -19,15 +22,15 @@ const Navigation = ({ isHomePage }) => {
       }`}
     >
       <div
-        className="m-3 p-2 sm:p-2 rounded-lg border border-transparent"
-        style={{ backgroundColor: "rgba(256, 256, 256, 0.7)" }}
+        className="m-4 p-2 rounded-lg border border-transparent"
+        style={{ backgroundColor: "rgba(256, 256, 256, 0.8)" }}
       >
         {/* <LanguageSwitch className="absolute" /> */}
         <Link to="/">
           <Image
             src="kai_schaefer_logo.png"
             alt="Kai Schäfer Web Developer Logo"
-            className="w-10 sm:w-20"
+            className="w-10 sm:w-14"
           />
         </Link>
       </div>
@@ -75,7 +78,7 @@ const Navigation = ({ isHomePage }) => {
             </Button>
           </Link>
         </div>
-        <div className="border rounded-lg">
+        <div className="border rounded-lg md:hidden">
           <MenuIcon
             onClick={handleOpen}
             className="md:hidden m-1"
@@ -123,6 +126,10 @@ const Navigation = ({ isHomePage }) => {
       </Modal>
     </nav>
   )
+}
+
+Navigation.propTypes = {
+  isHomePage: PropTypes.bool.isRequired
 }
 
 export default Navigation
