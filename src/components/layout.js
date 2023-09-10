@@ -14,13 +14,13 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
+        {/* <footer
           style={{
             marginTop: `2rem`,
           }}
         >
           © {new Date().getFullYear()}
-        </footer>
+        </footer> */}
       </div>
     </>
   )

@@ -4,6 +4,7 @@ import Seo from "../components/seo"
 import Header from "../components/header"
 import Welcome from "../components/welcome"
 import Technologies from "../components/technologies"
+import Characteristics from "../components/characteristics"
 
 
 const IndexPage = () => (
@@ -14,6 +15,7 @@ const IndexPage = () => (
       <Welcome/>
       <Technologies/>
     </Layout>
+    <Characteristics/>
   </>
 )
 

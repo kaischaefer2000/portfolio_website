@@ -1,7 +1,7 @@
 {
   "name": "kai-schaefer",
   "private": true,
-  "description": "Portfolio Website von Web-Entwickler Kai Schäfer",
+  "description": "Portfolio website of Kai Schäfer",
   "version": "0.1.0",
   "author": "Kai Schäfer  <kai305@web.de>",
   "dependencies": {

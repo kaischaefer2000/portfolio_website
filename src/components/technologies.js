@@ -46,7 +46,7 @@ const Technologies = () => {
   return (
     <div className="my-20 py-5 flex flex-col">
       <div className="md:w-2/3">
-        <h2>
+        <h2 style={{color: "#3753a0" }}>
           Mein Werkzeugkasten 
         </h2>
         <p className="text-sm">

@@ -6,20 +6,23 @@ import { Link } from "gatsby"
 import Modal from "@mui/material/Modal"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
-
-
-const Navigation = ({ isHomePage }) => {
+const Navigation = React.forwardRef(({ isHomePage, navbarOpacity }, ref) => {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   return (
     <nav
-      className={`flex flex-row w-full ${
-        isHomePage === true ? "absolute" : "realtive navColor"
+      ref={ref}
+      className={`flex flex-row w-full z-50 ${
+        isHomePage === true ? "fixed" : "realtive navColor"
       }`}
+      style={{
+        backgroundColor: `rgba(55, 83, 160, ${navbarOpacity})`,
+        transition: "background-color 0.5s",
+      }}
     >
       <div
         className="m-4 p-2 rounded-lg border border-transparent"
@@ -38,7 +41,11 @@ const Navigation = ({ isHomePage }) => {
         <div className="hidden md:block">
           <Link to="/">
             <Button
-              style={{ color: "#fff", textTransform: "none" }}
+              style={{
+                textTransform: "none",
+                color: "#1F2937",
+                fontWeight: 600,
+              }}
               variant="text"
               className="mx-1"
             >
@@ -47,7 +54,11 @@ const Navigation = ({ isHomePage }) => {
           </Link>
           <Link to="/portfolio">
             <Button
-              style={{ color: "#fff", textTransform: "none" }}
+              style={{
+                textTransform: "none",
+                color: "#1F2937",
+                fontWeight: 600,
+              }}
               disableElevation={true}
               variant="text"
               className="mx-1"
@@ -57,9 +68,13 @@ const Navigation = ({ isHomePage }) => {
           </Link>
           <Link to="/ueber-mich">
             <Button
-              style={{ color: "#fff", textTransform: "none" }}
+              style={{
+                textTransform: "none",
+                color: "#1F2937",
+                fontWeight: 600,
+              }}
               variant="text"
-              className="mx-1"
+              className="mx-1 "
             >
               Über mich
             </Button>
@@ -126,10 +141,10 @@ const Navigation = ({ isHomePage }) => {
       </Modal>
     </nav>
   )
-}
+})
 
 Navigation.propTypes = {
-  isHomePage: PropTypes.bool.isRequired
+  isHomePage: PropTypes.bool.isRequired,
 }
 
 export default Navigation

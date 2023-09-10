@@ -596,12 +596,12 @@ pre tt:after {
   }
 }
 
-.navColor{
-  background-color: #3753a0;
+.navColor {
+  background-color: rgb(55, 83, 160);
 }
 
-@media (max-width: 835px){
-  #indexH1{
+@media (max-width: 835px) {
+  #indexH1 {
     line-height: 1.3em !important;
   }
 }
